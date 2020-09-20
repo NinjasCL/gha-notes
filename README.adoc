@@ -6,4 +6,4 @@ Appends a note message to the latest commit.
 
 - https://github.com/cds-snc/github-actions/blob/master/auto-commit/
 
-- https://github.com/SwiftDocOrg/github-wiki-publish-actionDockerfile
+- https://github.com/SwiftDocOrg/github-wiki-publish-action
