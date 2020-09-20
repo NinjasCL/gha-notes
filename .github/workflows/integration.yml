@@ -1,0 +1,9 @@
+name: Integration Test
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ninjascl/gha-notes@master
+        with:
+          note: "testing note. should be added to the latest commit."

@@ -1,0 +1,17 @@
+name: "Git notes"
+description: "Add a note to the latest github commit"
+author: "Camilo Castro <camilo@ninjas.cl>"
+
+branding:
+  icon: "git"
+  color: "green"
+
+inputs:
+  note:
+    description: "String value add a new note to the commit message."
+    required: true
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args: ["${{ inputs.note }}"]
