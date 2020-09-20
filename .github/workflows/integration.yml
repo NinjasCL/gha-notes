@@ -4,6 +4,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: ninjascl/gha-notes@master
+      - uses: ninjascl/gha-notes@main
         with:
           note: "testing note. should be added to the latest commit."
