@@ -1,9 +1,43 @@
 # Github Action Notes
 
-Appends a note message to the latest commit.
+This is an example of using GitHub actions
+to use the `git-notes` feature.
 
-## References
+Git notes enables you adding data to a commit without changing it's SHA. They're available since `Git 1.6.6`. They’re cool for appending notes from automated systems (like ticket or build systems) but not really for having interactive conversations with other developers.
 
-- https://github.com/cds-snc/github-actions/blob/master/auto-commit/
+Displaying Git notes on GitHub is no longer supported.
+But you can store them anyway if you need to append
+additional info to the commits.
 
-- https://github.com/SwiftDocOrg/github-wiki-publish-action
+## Example Workflow
+
+```yml
+name: Example Git notes Workflow
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git notes append -m "Testing notes with github actions. Ref: ${GITHUB_REF} - ${GITHUB_SHA}"
+          git push origin "refs/notes/*"
+```
+
+## Reference
+
+- http://web.archive.org/web/20101130123509/https://progit.org/2010/08/25/notes.html
+
+- https://github.blog/2010-08-25-git-notes-display/
+
+- http://alblue.bandlem.com/2011/11/git-tip-of-week-git-notes.html
+
+- https://git-scm.com/docs/git-notes
+
+- https://gist.github.com/topheman/ec8cde7c54e24a785e52
+
+++++
+Made with <i class="fa fa-heart">&#9829;</i> by <a href="https://ninjas.cl" target="_blank">Ninjas.cl</a>.
+++++

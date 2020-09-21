@@ -1,0 +1,12 @@
+name: Example Git notes Workflow
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git notes append -m "Testing notes with github actions. Ref: ${GITHUB_REF} - ${GITHUB_SHA}"
+          git push origin "refs/notes/*"
